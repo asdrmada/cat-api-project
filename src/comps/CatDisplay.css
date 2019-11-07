@@ -1,0 +1,38 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 5rem;
+}
+
+.flex-row-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.flex-row-1 img {
+    max-width: 25%;
+    height: auto;
+    margin-left: 1rem;
+    box-shadow: 10px 10px 5px rgba(128, 128, 128, 0.479)
+}
+
+.flex-row-1 h2 {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+}
+
+p {
+    margin-top: 0rem;
+    font-size: 1.25rem;
+    font-family: Helvetica;
+}
+
+h6 {
+    margin-bottom: 14.96px;
+    font-size: 1.25rem;
+}
+

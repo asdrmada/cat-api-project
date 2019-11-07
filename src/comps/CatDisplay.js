@@ -10,19 +10,26 @@ export class CatDisplay extends Component {
     }
 
     render() {
+
         return (
             <div>
-                <h3>{this.props.name}</h3>
+              <div className = 'flex-container'>
+                <div className = 'flex-row-1'>
+                  <h2>{this.props.name}</h2>
 
-                <img src={this.props.image} alt={this.props.id}></img>
+                  <img src={this.props.image} alt={this.props.id}></img>
+                </div>
 
-                <p>{this.props.origin}</p>
+                <h3>Origin:</h3> <p>{this.props.origin}</p>
 
-                <p>{this.props.temperament}</p>
+                <h3>Temperament/Personality:</h3> <p>{this.props.temperament}</p>
 
-                <h6>{this.props.description}</h6>
+                <h3>Description:</h3> <p>{this.props.description}</p>
 
                 <a href={this.props.wikiLink}>Read more here!</a>
+             </div>
+
+             <footer><em> by Alex Newman</em></footer>
             </div>
         )
     }

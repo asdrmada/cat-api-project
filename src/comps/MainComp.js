@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CatDisplay from './CatDisplay'
+import './MainComp.css'
 import axios from 'axios';
 
 // const CAT_API_KEY = '?api_key=9c6f2f5c-8e6c-417c-8011-94e3543db8ba';
@@ -27,6 +28,7 @@ export class MainComp extends Component {
         this.searchCat = this.searchCat.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.showDisplay  = this.showDisplay.bind(this)
     }
 
     async componentDidMount(){
@@ -83,12 +85,30 @@ export class MainComp extends Component {
     event.preventDefault();
 }
 
+  showDisplay(){
+      if(this.state.image === ''){
+          return <div></div>
+      } else {
+       return(
+        <CatDisplay
+        name = {this.state.name}
+        image = {this.state.image}
+        id    = {this.state.id}
+        origin = {this.state.origin}
+        temperament = {this.state.temperament}
+        description = {this.state.description}
+        wikiLink = {this.state.moreInfo}/>
+       )
+      }
+  }
+
 
 
     render() {
         return (
             <div>
-                <h1>Cat Api Project!!</h1>
+                <h1>The Cat-O-Matic!!</h1>
+                <p><em>Simply use the search bar below to find info on various breeds!</em></p>
 
                 <form onSubmit = {this.handleSubmit}>
                     <input typeof ='text' value={this.state.search}
@@ -97,14 +117,8 @@ export class MainComp extends Component {
                     onClick = {this.searchCat}>Search</button>
                 </form>
 
-                <CatDisplay
-                name = {this.state.name}
-                image = {this.state.image}
-                id    = {this.state.id}
-                origin = {this.state.origin}
-                temperament = {this.state.temperament}
-                description = {this.state.description}
-                wikiLink = {this.state.moreInfo}/>
+                {this.showDisplay()}
+
             </div>
         )
     }

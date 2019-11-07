@@ -1,0 +1,22 @@
+input {
+    width: 25%;
+    padding: 12px 20px;
+    border: 2px solid grey;
+    border-radius: 4px;
+}
+
+button {
+    padding: 12px 20px;
+    border: 2px solid grey;
+    border-radius: 4px;
+}
+
+h1 {
+    color: white;
+    font-weight: 300;
+    font-size: 5.5rem;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.836);
+}
