@@ -31,21 +31,20 @@ export class MainComp extends Component {
         this.showDisplay  = this.showDisplay.bind(this)
     }
 
+    // Tests connections upon app opening/compotnent mounting.
     async componentDidMount(){
-        let breeds = await axios.get(`${CAT_API_URL}breeds/search?q=bengal`, {headers})
+        let breeds = await axios.get(`${CAT_API_URL}breeds/`, {headers})
+        console.log('test connection')
         console.log(breeds.data)
-    
-
-        let breedImage = await axios.get(`${CAT_API_URL}images/search?breed_ids=${breeds.data[0].id}`, {headers})
-        console.log(breedImage)
-        console.log(breedImage.data[0].url)
     }
 
+    // Changes state too search value
     handleChange(event) {
         this.setState({search: event.target.value});
       }
     
 
+    //   API/GET request for cat information. Changes state upon request fill.
     async searchCat(){
  
         try{
@@ -65,7 +64,7 @@ export class MainComp extends Component {
                 moreInfo: cat.wikipedia_url
             })
             
-
+            // Retrives information for image
             const catImage = `${CAT_API_URL}images/search?breed_ids=${this.state.id}`
             const imgRes = await axios.get(catImage);
             console.log(imgRes);
@@ -83,8 +82,9 @@ export class MainComp extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-}
+    }
 
+    // Toggles rendering of display component depending on state change
   showDisplay(){
       if(this.state.image === ''){
           return <div></div>
